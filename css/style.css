@@ -1,0 +1,220 @@
+/* ============================
+   GLOBAL STYLE — FULL BLACK CINEMATIC
+   ============================ */
+
+   body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #000000;
+    color: #e5e5e5;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Soft Teal Tone */
+.text-teal {
+    color: #4ad4d8 !important;
+}
+
+.btn-teal {
+    background: #4ad4d8;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    color: #000;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.btn-teal:hover {
+    background: #38aeb2;
+    color: #fff;
+}
+
+.btn-outline-teal {
+    border: 1px solid #4ad4d8;
+    padding: 10px 26px;
+    border-radius: 50px;
+    color: #4ad4d8;
+    transition: 0.3s;
+}
+.btn-outline-teal:hover {
+    background: #4ad4d8;
+    color: #000;
+}
+
+/* ============================
+   NAVBAR — Floating Glass
+   ============================ */
+
+.nav-glass {
+    backdrop-filter: blur(12px);
+    background: rgba(0, 0, 0, 0.35) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.nav-link {
+    color: #e5e5e5 !important;
+    font-size: 15px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+.nav-link:hover {
+    color: #4ad4d8 !important;
+}
+
+/* ============================
+   PRELOADER
+   ============================ */
+
+#preloader {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5000;
+}
+
+.loader-text {
+    font-size: 32px;
+    color: #4ad4d8;
+    letter-spacing: 4px;
+    animation: fadePulse 2s infinite ease-in-out;
+}
+
+@keyframes fadePulse {
+    0% { opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
+
+/* ============================
+   HERO SECTION — VIDEO BACKGROUND
+   ============================ */
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(45%) contrast(110%) saturate(1.1);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.9));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    top: 52%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+}
+
+/* EDITORIAL TITLE (120px recommended) */
+.hero-title {
+    font-weight: 200;
+    font-size: 110px;
+    line-height: 0.85;
+    letter-spacing: 4px;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    color: #4ad4d8;
+    letter-spacing: 3px;
+    font-weight: 400;
+}
+
+/* ============================
+   QUOTE PARALLAX
+   ============================ */
+
+.quote-section {
+    padding: 150px 0;
+    position: relative;
+    background: #000;
+}
+
+.quote-text {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 200;
+    color: #e5e5e5;
+    letter-spacing: 3px;
+    opacity: 0.8;
+    transform: translateY(0px);
+    transition: transform 0.3s ease-out;
+}
+
+/* ============================
+   FEATURES
+   ============================ */
+
+.features-strip h5 {
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.features-strip p {
+    color: #bbbbbb;
+}
+
+/* ============================
+   PREVIEW GALLERY
+   ============================ */
+
+.preview-gallery {
+    padding: 100px 0;
+}
+
+.gallery-thumb {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 4px;
+    filter: brightness(85%);
+    transition: 0.3s;
+}
+.gallery-thumb:hover {
+    filter: brightness(100%);
+    transform: scale(1.03);
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/* ============================
+   FOOTER
+   ============================ */
+
+.footer {
+    padding: 40px 0;
+    background: #000;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+

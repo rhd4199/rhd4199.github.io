@@ -1,0 +1,103 @@
+/* =========================================
+   CINEMATIC ANIMATIONS — fade, slide, reveal
+   ========================================= */
+
+/* Global hidden state for reveals */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fade In */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 1s ease-in-out;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fade Up */
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1s ease-out;
+}
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Slide Left */
+.slide-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: 1s ease-out;
+}
+.slide-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Slide Right */
+.slide-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: 1s ease-out;
+}
+.slide-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Fade Zoom */
+.fade-zoom {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: 1s ease-out;
+}
+.fade-zoom.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Cinematic delay control */
+[data-delay] {
+    transition-delay: var(--delay);
+}
+
+/* Smooth page transition fade */
+.page-transition {
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+}
+.page-transition.show {
+    opacity: 1;
+}
+
+/* Hover cinematic glow */
+.cine-hover {
+    transition: 0.4s ease;
+}
+.cine-hover:hover {
+    opacity: 0.9;
+    transform: scale(1.02);
+}
+
+/* Soft opacity flicker for cinematic mood */
+@keyframes softFade {
+    0% { opacity: 0.85; }
+    50% { opacity: 1; }
+    100% { opacity: 0.92; }
+}
+.soft-fade {
+    animation: softFade 4s infinite ease-in-out;
+}

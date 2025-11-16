@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adrian Mahesa | Gallery</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+
+    <!-- Font Awesome for Lightbox -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- SimpleLightbox CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.1/simple-lightbox.min.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+    <div class="loader-text">ADRIAN MAHESA</div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top nav-glass py-3">
+  <div class="container">
+    <a class="navbar-brand text-teal" href="index.html">Adrian Mahesa</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-section d-flex align-items-center">
+    <div class="hero-overlay"></div>
+    <div class="hero-content container text-center">
+        <h1 class="hero-title reveal" data-delay="0s">Gallery</h1>
+        <p class="hero-subtitle mt-3 reveal" data-delay="0.2s">Cinematic & Editorial Portfolio</p>
+    </div>
+</section>
+
+<!-- PORTFOLIO FILTER -->
+<section class="container py-5">
+    <div class="text-center mb-4">
+        <h2 class="section-title text-teal reveal" data-delay="0.2s">Choose Category</h2>
+        <div class="btn-group mt-3 reveal" data-delay="0.4s">
+            <button class="btn btn-outline-teal filter-btn active" data-filter="*">All</button>
+            <button class="btn btn-outline-teal filter-btn" data-filter=".wedding">Wedding</button>
+            <button class="btn btn-outline-teal filter-btn" data-filter=".prewedding-outdoor">Prewedding Outdoor</button>
+            <button class="btn btn-outline-teal filter-btn" data-filter=".prewedding-indoor">Prewedding Indoor</button>
+            <button class="btn btn-outline-teal filter-btn" data-filter=".intimate">Intimate Session</button>
+            <button class="btn btn-outline-teal filter-btn" data-filter=".engagement">Engagement</button>
+            <button class="btn btn-outline-teal filter-btn" data-filter=".akad">Akad / Resepsi</button>
+        </div>
+    </div>
+
+    <!-- PORTFOLIO GRID -->
+    <div class="row g-3 portfolio-grid mt-4">
+        <!-- Example Items -->
+        <div class="col-md-4 wedding fade-up reveal" data-delay="0.2s">
+            <a href="https://source.unsplash.com/800x600/?wedding,couple" class="portfolio-item">
+                <img src="https://source.unsplash.com/400x300/?wedding,couple" class="img-fluid rounded cine-hover" alt="Wedding 1">
+            </a>
+        </div>
+        <div class="col-md-4 prewedding-outdoor fade-up reveal" data-delay="0.3s">
+            <a href="https://source.unsplash.com/800x600/?prewedding,outdoor" class="portfolio-item">
+                <img src="https://source.unsplash.com/400x300/?prewedding,outdoor" class="img-fluid rounded cine-hover" alt="Prewedding Outdoor 1">
+            </a>
+        </div>
+        <div class="col-md-4 prewedding-indoor fade-up reveal" data-delay="0.4s">
+            <a href="https://source.unsplash.com/800x600/?prewedding,indoor" class="portfolio-item">
+                <img src="https://source.unsplash.com/400x300/?prewedding,indoor" class="img-fluid rounded cine-hover" alt="Prewedding Indoor 1">
+            </a>
+        </div>
+        <div class="col-md-4 intimate fade-up reveal" data-delay="0.5s">
+            <a href="https://source.unsplash.com/800x600/?intimate,couple" class="portfolio-item">
+                <img src="https://source.unsplash.com/400x300/?intimate,couple" class="img-fluid rounded cine-hover" alt="Intimate 1">
+            </a>
+        </div>
+        <div class="col-md-4 engagement fade-up reveal" data-delay="0.6s">
+            <a href="https://source.unsplash.com/800x600/?engagement,couple" class="portfolio-item">
+                <img src="https://source.unsplash.com/400x300/?engagement,couple" class="img-fluid rounded cine-hover" alt="Engagement 1">
+            </a>
+        </div>
+        <div class="col-md-4 akad fade-up reveal" data-delay="0.7s">
+            <a href="https://source.unsplash.com/800x600/?wedding,candid" class="portfolio-item">
+                <img src="https://source.unsplash.com/400x300/?wedding,candid" class="img-fluid rounded cine-hover" alt="Akad 1">
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer text-center py-4">
+    <p>&copy; 2025 Adrian Mahesa. All rights reserved.</p>
+</footer>
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<!-- SimpleLightbox JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/simplelightbox/2.14.1/simple-lightbox.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/preloader.js"></script>
+
+<script>
+// ------------------------------
+// SIMPLELIGHTBOX INIT
+// ------------------------------
+var lightbox = new SimpleLightbox('.portfolio-item', {
+    captions: true,
+    captionsData: 'alt',
+    showCounter: true,
+    fadeSpeed: 300
+});
+
+// ------------------------------
+// FILTER PORTFOLIO
+// ------------------------------
+$(document).ready(function () {
+    $('.filter-btn').click(function () {
+        var filter = $(this).attr('data-filter');
+        $('.filter-btn').removeClass('active');
+        $(this).addClass('active');
+
+        if (filter == '*') {
+            $('.portfolio-grid .col-md-4').show(300);
+        } else {
+            $('.portfolio-grid .col-md-4').hide(300);
+            $('.portfolio-grid ' + filter).show(300);
+        }
+    });
+});
+</script>
+
+</body>
+</html>
