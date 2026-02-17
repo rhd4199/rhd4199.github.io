@@ -7,11 +7,26 @@
     };
   
     function setActive(tab) {
+      // button active
       buttons.forEach((b) => b.classList.toggle("active", b.dataset.tab === tab));
   
+      // pane switch with tiny reflow to trigger transition cleanly
       Object.keys(panes).forEach((k) => {
-        if (!panes[k]) return;
-        panes[k].classList.toggle("active", k === tab);
+        const el = panes[k];
+        if (!el) return;
+  
+        if (k === tab) {
+          el.classList.add("active");
+          // restart animation feel (subtle)
+          el.style.opacity = "0";
+          el.style.transform = "translateY(8px)";
+          requestAnimationFrame(() => {
+            el.style.opacity = "";
+            el.style.transform = "";
+          });
+        } else {
+          el.classList.remove("active");
+        }
       });
     }
   

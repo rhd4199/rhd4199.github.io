@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Reza Harjadinata — Portfolio</title>
+    <title>Alfadli Rahmat Putra — Portfolio</title>
 
     <!-- Bootstrap (allowed) -->
     <link
@@ -26,13 +26,13 @@
         <!-- HERO -->
         <header class="hero text-center position-relative">
           <div class="avatar-wrap mx-auto">
-            <!-- GANTI: taruh fotomu di folder assets dengan nama profile.jpg -->
             <img
               src="assets/profile.jpg"
-              alt="Foto Reza Harjadinata"
+              alt="Foto Alfadli Rahmat Putra"
               class="avatar"
               onerror="this.src='https://via.placeholder.com/220x220.png?text=Your+Photo';"
             />
+            <div class="avatar-glow" aria-hidden="true"></div>
           </div>
 
           <!-- Social stack (kanan avatar) -->
@@ -50,92 +50,161 @@
               <i class="fa-brands fa-linkedin-in"></i>
             </a>
 
-            <!-- GANTI: taruh CV PDF di assets/cv.pdf -->
             <a class="cv-btn" href="assets/cv.pdf" download>
               <i class="fa-solid fa-download me-2"></i>CV
             </a>
           </div>
 
-          <h1 class="name mt-4">Reza Harjadinata</h1>
+          <h1 class="name mt-4">Alfadli Rahmat Putra</h1>
           <p class="role mb-3">
             Software Developer <span class="sep">|</span> Technical IT Support <span class="sep">|</span> Backend Developer
           </p>
 
-          <p class="summary mx-auto">
-            Software Developer and Technical IT Support with experience supporting and developing enterprise systems,
-            including insurance management, POS, and accounting platforms. Proven ability to handle high-volume operational
-            requests (70–120+ per day) while also contributing to backend development, database management, and system improvements.
-            Strong communication skills, comfortable working remotely, and proficient in English for technical documentation and
-            coordination. Focused on system reliability, data accuracy, and business continuity.
-          </p>
+          <div class="hero-card mx-auto">
+            <div class="hero-card-head">
+              <i class="fa-regular fa-circle-check"></i>
+              <span>Summary</span>
+            </div>
+            <p class="summary m-0">
+              Software Developer and Technical IT Support with experience supporting and developing enterprise systems,
+              including insurance management, POS, and accounting platforms. Proven ability to handle high-volume operational
+              requests (70–120+ per day) while also contributing to backend development, database management, and system improvements.
+              Strong communication skills, comfortable working remotely, and proficient in English for technical documentation and
+              coordination. Focused on system reliability, data accuracy, and business continuity.
+            </p>
+          </div>
         </header>
 
         <!-- TABS -->
         <nav class="tabs mt-4" aria-label="Main tabs">
-          <button class="tab-btn active" data-tab="portfolio" type="button">Portfolio</button>
-          <button class="tab-btn" data-tab="experience" type="button">Experience</button>
-          <button class="tab-btn" data-tab="skill" type="button">Skill</button>
+          <button class="tab-btn active" data-tab="portfolio" type="button">
+            <i class="fa-regular fa-folder-open me-2"></i>Portfolio
+          </button>
+          <button class="tab-btn" data-tab="experience" type="button">
+            <i class="fa-regular fa-briefcase me-2"></i>Experience
+          </button>
+          <button class="tab-btn" data-tab="skill" type="button">
+            <i class="fa-solid fa-wand-magic-sparkles me-2"></i>Skill
+          </button>
         </nav>
 
         <!-- CONTENT -->
         <main class="tab-area mt-3">
           <!-- PORTFOLIO -->
           <section id="tab-portfolio" class="tab-pane active">
-            <h3 class="section-title">Selected Projects</h3>
+            <div class="section-head">
+              <h3 class="section-title m-0">Selected Projects</h3>
+              <div class="section-badge">
+                <i class="fa-solid fa-sparkles"></i> Calm • Clean • Professional
+              </div>
+            </div>
 
-            <ul class="clean-list">
-              <li class="project-item">
-                <div class="project-title">Enterprise Insurance Ops Support Tools (TICS)</div>
-                <div class="project-tech">
-                  Technologies: SQL, Database Analysis, Reporting, Document Templating
-                </div>
-                <div class="project-links">
-                  <a href="#" class="link-soft">Website</a>
-                  <span class="dot">•</span>
-                  <a href="#" class="link-soft">Github</a>
-                </div>
-              </li>
+            <div class="row g-3 mt-1">
+              <div class="col-12 col-md-6">
+                <article class="card-glass card-hover">
+                  <div class="card-top">
+                    <div class="card-icon">
+                      <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                      <div class="card-title">Enterprise Insurance Ops Support Tools (TICS)</div>
+                      <div class="card-sub">Operational support + internal tooling for enterprise platform</div>
+                    </div>
+                  </div>
 
-              <li class="project-item">
-                <div class="project-title">POS & Accounting Systems for Multi Clients (Depati Digital Media)</div>
-                <div class="project-tech">
-                  Technologies: PHP, Node.js, Python, MySQL, PostgreSQL
-                </div>
-                <div class="project-links">
-                  <a href="#" class="link-soft">Case Study</a>
-                  <span class="dot">•</span>
-                  <a href="#" class="link-soft">Github</a>
-                </div>
-              </li>
+                  <div class="card-chips">
+                    <span class="chip">SQL</span>
+                    <span class="chip">DB Analysis</span>
+                    <span class="chip">Reporting</span>
+                    <span class="chip">Document Templating</span>
+                  </div>
 
-              <li class="project-item">
-                <div class="project-title">Data Cleaning & Reconciliation Toolkit</div>
-                <div class="project-tech">
-                  Technologies: SQL, Data Normalization, Consistency Checks, Ops Reporting
-                </div>
-                <div class="project-links">
-                  <a href="#" class="link-soft">Notes</a>
-                </div>
-              </li>
-            </ul>
+                  <div class="card-actions">
+                    <a href="#" class="link-soft"><i class="fa-solid fa-arrow-up-right-from-square me-2"></i>Website</a>
+                    <span class="dot">•</span>
+                    <a href="#" class="link-soft"><i class="fa-brands fa-github me-2"></i>Github</a>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <article class="card-glass card-hover">
+                  <div class="card-top">
+                    <div class="card-icon">
+                      <i class="fa-solid fa-cash-register"></i>
+                    </div>
+                    <div>
+                      <div class="card-title">POS & Accounting Systems (Multi Clients)</div>
+                      <div class="card-sub">Development + maintenance untuk banyak klien</div>
+                    </div>
+                  </div>
+
+                  <div class="card-chips">
+                    <span class="chip">PHP</span>
+                    <span class="chip">Node.js</span>
+                    <span class="chip">Python</span>
+                    <span class="chip">MySQL</span>
+                    <span class="chip">PostgreSQL</span>
+                  </div>
+
+                  <div class="card-actions">
+                    <a href="#" class="link-soft"><i class="fa-regular fa-file-lines me-2"></i>Case Study</a>
+                    <span class="dot">•</span>
+                    <a href="#" class="link-soft"><i class="fa-brands fa-github me-2"></i>Github</a>
+                  </div>
+                </article>
+              </div>
+
+              <div class="col-12">
+                <article class="card-glass card-hover">
+                  <div class="card-top">
+                    <div class="card-icon">
+                      <i class="fa-solid fa-broom"></i>
+                    </div>
+                    <div>
+                      <div class="card-title">Data Cleaning & Reconciliation Toolkit</div>
+                      <div class="card-sub">Consistency checks, reconciliation, dan reporting untuk data operasional</div>
+                    </div>
+                  </div>
+
+                  <div class="card-chips">
+                    <span class="chip">SQL</span>
+                    <span class="chip">Normalization</span>
+                    <span class="chip">Consistency Checks</span>
+                    <span class="chip">Ops Reporting</span>
+                  </div>
+
+                  <div class="card-actions">
+                    <a href="#" class="link-soft"><i class="fa-regular fa-note-sticky me-2"></i>Notes</a>
+                  </div>
+                </article>
+              </div>
+            </div>
 
             <p class="hint mt-4">
-              Tips: isi link proyek kamu di bagian <span class="codeish">href="#"</span> pada setiap item.
+              Isi link kamu di bagian <span class="codeish">href="#"</span> pada tombol Website/Github/LinkedIn/WA.
             </p>
           </section>
 
           <!-- EXPERIENCE -->
           <section id="tab-experience" class="tab-pane">
-            <h3 class="section-title">Professional Experience</h3>
+            <div class="section-head">
+              <h3 class="section-title m-0">Professional Experience</h3>
+              <div class="section-badge">
+                <i class="fa-regular fa-clock"></i> High-volume ops • Reliable delivery
+              </div>
+            </div>
 
-            <div class="exp-card">
+            <article class="card-glass card-hover mt-3">
               <div class="exp-head">
-                <div>
-                  <div class="exp-role">Software Developer & Technical IT Support</div>
+                <div class="exp-left">
+                  <div class="exp-role">
+                    <i class="fa-solid fa-gear me-2"></i>Software Developer & Technical IT Support
+                  </div>
                   <div class="exp-org">TICS — Tugu Insurance Information System</div>
                   <div class="exp-sub">(Enterprise Insurance Management Super Application)</div>
                 </div>
-                <div class="exp-tag">Enterprise</div>
+                <div class="exp-tag"><i class="fa-solid fa-building me-2"></i>Enterprise</div>
               </div>
 
               <ul class="exp-list">
@@ -146,96 +215,144 @@
                 <li>Data consistency checks, reconciliation across modules, and system synchronization support.</li>
                 <li>Worked remotely with structured communication with dev/QA/business stakeholders.</li>
               </ul>
-            </div>
+            </article>
 
-            <div class="exp-card mt-3">
+            <article class="card-glass card-hover mt-3">
               <div class="exp-head">
-                <div>
-                  <div class="exp-role">Software Developer & IT Support</div>
+                <div class="exp-left">
+                  <div class="exp-role">
+                    <i class="fa-solid fa-laptop-code me-2"></i>Software Developer & IT Support
+                  </div>
                   <div class="exp-org">Depati Digital Media</div>
                 </div>
-                <div class="exp-tag">Client Systems</div>
+                <div class="exp-tag"><i class="fa-solid fa-users me-2"></i>Clients</div>
               </div>
 
               <ul class="exp-list">
                 <li>Developed & maintained POS and accounting-based systems for multiple clients.</li>
                 <li>IT support & maintenance for production systems: troubleshooting, bug fixes, and enhancements.</li>
                 <li>Database ops: data correction and reporting; supported accounting workflows and transaction validation.</li>
-                <li>Guided non-technical users (finance/admin/business owners) and ensured uptime & data accuracy.</li>
+                <li>Guided non-technical users and ensured uptime & data accuracy.</li>
               </ul>
-            </div>
+            </article>
           </section>
 
           <!-- SKILL -->
           <section id="tab-skill" class="tab-pane">
-            <h3 class="section-title">Core Skills</h3>
+            <div class="section-head">
+              <h3 class="section-title m-0">Core Skills</h3>
+              <div class="section-badge">
+                <i class="fa-solid fa-shapes"></i> Focused • Practical • Production-ready
+              </div>
+            </div>
 
-            <div class="row g-3">
+            <div class="row g-3 mt-2">
               <div class="col-12 col-lg-6">
-                <div class="skill-card">
-                  <div class="skill-title">Software Development</div>
-                  <div class="skill-items">
-                    <span class="pill">Backend (PHP)</span>
-                    <span class="pill">Node.js</span>
-                    <span class="pill">Python</span>
-                    <span class="pill">Internal Tools</span>
-                    <span class="pill">Bug Fixing</span>
+                <div class="card-glass card-hover">
+                  <div class="card-top">
+                    <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+                    <div>
+                      <div class="card-title">Software Development</div>
+                      <div class="card-sub">Backend, internal tools, maintenance</div>
+                    </div>
+                  </div>
+
+                  <div class="card-chips">
+                    <span class="chip">Backend (PHP)</span>
+                    <span class="chip">Node.js</span>
+                    <span class="chip">Python</span>
+                    <span class="chip">Bug Fixing</span>
+                    <span class="chip">Internal Tools</span>
                   </div>
                 </div>
               </div>
 
               <div class="col-12 col-lg-6">
-                <div class="skill-card">
-                  <div class="skill-title">System Support & Operations</div>
-                  <div class="skill-items">
-                    <span class="pill">Incident Handling</span>
-                    <span class="pill">Enterprise Support</span>
-                    <span class="pill">Monitoring</span>
-                    <span class="pill">Troubleshooting</span>
-                    <span class="pill">Reliability</span>
+                <div class="card-glass card-hover">
+                  <div class="card-top">
+                    <div class="card-icon"><i class="fa-solid fa-headset"></i></div>
+                    <div>
+                      <div class="card-title">System Support & Ops</div>
+                      <div class="card-sub">Incident, monitoring, reliability</div>
+                    </div>
+                  </div>
+
+                  <div class="card-chips">
+                    <span class="chip">Incident Handling</span>
+                    <span class="chip">Enterprise Support</span>
+                    <span class="chip">Troubleshooting</span>
+                    <span class="chip">Monitoring</span>
+                    <span class="chip">Reliability</span>
                   </div>
                 </div>
               </div>
 
               <div class="col-12 col-lg-6">
-                <div class="skill-card">
-                  <div class="skill-title">Database & Data</div>
-                  <div class="skill-items">
-                    <span class="pill">SQL Querying</span>
-                    <span class="pill">DB Management</span>
-                    <span class="pill">Data Cleaning</span>
-                    <span class="pill">Reconciliation</span>
-                    <span class="pill">Reporting</span>
+                <div class="card-glass card-hover">
+                  <div class="card-top">
+                    <div class="card-icon"><i class="fa-solid fa-database"></i></div>
+                    <div>
+                      <div class="card-title">Database & Data</div>
+                      <div class="card-sub">Querying, reconciliation, reporting</div>
+                    </div>
+                  </div>
+
+                  <div class="card-chips">
+                    <span class="chip">SQL Querying</span>
+                    <span class="chip">DB Management</span>
+                    <span class="chip">Data Cleaning</span>
+                    <span class="chip">Reconciliation</span>
+                    <span class="chip">Reporting</span>
                   </div>
                 </div>
               </div>
 
               <div class="col-12 col-lg-6">
-                <div class="skill-card">
-                  <div class="skill-title">Communication</div>
-                  <div class="skill-items">
-                    <span class="pill">User Support</span>
-                    <span class="pill">Remote Collaboration</span>
-                    <span class="pill">Technical Docs</span>
-                    <span class="pill">English (Pro)</span>
+                <div class="card-glass card-hover">
+                  <div class="card-top">
+                    <div class="card-icon"><i class="fa-solid fa-comments"></i></div>
+                    <div>
+                      <div class="card-title">Communication</div>
+                      <div class="card-sub">Remote collaboration & documentation</div>
+                    </div>
+                  </div>
+
+                  <div class="card-chips">
+                    <span class="chip">User Support</span>
+                    <span class="chip">Remote Collaboration</span>
+                    <span class="chip">Technical Docs</span>
+                    <span class="chip">English (Pro)</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="tech-stack mt-4">
-              <div class="section-subtitle">Technical Stack</div>
-              <div class="stack-line">
-                <span class="stack-k">Languages:</span> PHP, JavaScript (Node.js), Python
+            <div class="card-glass card-hover mt-3">
+              <div class="card-top">
+                <div class="card-icon"><i class="fa-solid fa-layer-group"></i></div>
+                <div>
+                  <div class="card-title">Technical Stack</div>
+                  <div class="card-sub">Ringkas, gampang dibaca recruiter</div>
+                </div>
               </div>
-              <div class="stack-line">
-                <span class="stack-k">Databases:</span> MySQL, PostgreSQL
-              </div>
-              <div class="stack-line">
-                <span class="stack-k">Concepts:</span> System integration, synchronization, accounting workflows
-              </div>
-              <div class="stack-line">
-                <span class="stack-k">Environment:</span> Remote support, production systems
+
+              <div class="stack-grid mt-2">
+                <div class="stack-row">
+                  <div class="stack-k">Languages</div>
+                  <div class="stack-v">PHP, JavaScript (Node.js), Python</div>
+                </div>
+                <div class="stack-row">
+                  <div class="stack-k">Databases</div>
+                  <div class="stack-v">MySQL, PostgreSQL</div>
+                </div>
+                <div class="stack-row">
+                  <div class="stack-k">Concepts</div>
+                  <div class="stack-v">System integration, synchronization, accounting workflows</div>
+                </div>
+                <div class="stack-row">
+                  <div class="stack-k">Environment</div>
+                  <div class="stack-v">Remote support, production systems</div>
+                </div>
               </div>
             </div>
           </section>
@@ -243,7 +360,7 @@
 
         <footer class="footer mt-5 text-center">
           <div class="foot-note">
-            © <span id="year"></span> Reza Harjadinata • Calm & Clean Portfolio
+            © <span id="year"></span> Alfadli Rahmat Putra • Calm & Clean Portfolio
           </div>
         </footer>
       </div>
