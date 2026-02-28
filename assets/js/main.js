@@ -1,5 +1,5 @@
 /* ==========================================================
-   RIFKI PORTFOLIO 2026 — main.js
+   reza PORTFOLIO 2026 — main.js
    - Scroll progress
    - Navbar shrink + active section highlight
    - Smooth anchor (fallback)
