@@ -216,8 +216,32 @@ $(function () {
         });
     }
 
-    /*==================== AOS ====================*/
-    AOS.init({ duration: 900, once: true, offset: 80 });
+    /*==================== Scroll reveal (replaces AOS) ====================*/
+    const revealEls = document.querySelectorAll("[data-aos]");
+
+    function revealAll() {
+        revealEls.forEach(function (el) { el.classList.add("revealed"); });
+    }
+
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+        revealAll();
+    } else {
+        const revealObserver = new IntersectionObserver(function (entries, obs) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    const delay = parseInt(entry.target.getAttribute("data-aos-delay"), 10) || 0;
+                    entry.target.style.transitionDelay = delay + "ms";
+                    entry.target.classList.add("revealed");
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+
+        revealEls.forEach(function (el) { revealObserver.observe(el); });
+
+        // Safety net: never leave content invisible (e.g. late image reflow)
+        setTimeout(revealAll, 3500);
+    }
 
     /*==================== Swiper ====================*/
     new Swiper(".testimonial-slider", {
