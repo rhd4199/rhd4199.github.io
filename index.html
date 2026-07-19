@@ -1,12 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Reza Harjadinata | Full Stack Developer</title>
-    <meta name="description" content="Official Portfolio of Reza Harjadinata">
+    <meta name="description" content="Official Portfolio of Reza Harjadinata — Full Stack Developer, AI Engineer & Founder.">
+    <meta name="theme-color" content="#6366f1">
+
+    <!-- Set theme before paint to avoid flash -->
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem("theme");
+                document.documentElement.setAttribute("data-theme", saved || "light");
+            } catch (e) { }
+        })();
+    </script>
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -17,7 +28,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -31,29 +42,37 @@
 
 <body>
 
+    <!-- Scroll progress -->
+    <div id="scrollProgress"></div>
+
     <!-- ===== Loader ===== -->
     <div id="loader">
-        <div class="loader-logo">
-            <span>R</span>
-        </div>
+        <div class="loader-logo"><span>R</span></div>
     </div>
 
     <!-- ===== Navbar ===== -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">RD</a>
+            <a class="navbar-brand" href="#hero">
+                <span class="brand-bracket">&lt;</span>RD<span class="brand-bracket">/&gt;</span>
+            </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
+            <div class="nav-actions order-lg-3">
+                <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle light/dark theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
 
-            <div class="collapse navbar-collapse justify-content-end" id="menu">
+            <div class="collapse navbar-collapse order-lg-2 justify-content-end" id="menu">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#stack">Stack</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -63,16 +82,17 @@
     <!-- ===== Hero ===== -->
     <section id="hero">
         <div class="container">
-            <div class="row align-items-center min-vh-100">
+            <div class="row align-items-center min-vh-100 g-5">
                 <div class="col-lg-6" data-aos="fade-right">
-                    <div class="subtitle">WELCOME TO MY PORTFOLIO</div>
+                    <div class="hero-status">
+                        <span class="dot"></span> Available for freelance &amp; collaboration
+                    </div>
 
-                    <h1>Reza <span>Harjadinata</span></h1>
+                    <h1>Reza <span class="gradient-text">Harjadinata</span></h1>
 
-                    <h2>
-                        Full Stack Developer<br>
-                        AI Engineer<br>
-                        Founder
+                    <h2 class="hero-role">
+                        <span class="mono-prefix">&gt;</span>
+                        <span id="typing"></span><span class="type-cursor">▋</span>
                     </h2>
 
                     <p>
@@ -83,35 +103,25 @@
 
                     <div class="hero-button">
                         <a href="#projects" class="btn btn-gold">View Projects</a>
-                        <a href="#contact" class="btn btn-outline-light">Contact Me</a>
+                        <a href="#contact" class="btn btn-ghost">Contact Me</a>
                     </div>
 
                     <div class="hero-social">
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
 
-                <div class="col-lg-6 text-center" data-aos="fade-left">
-                    <div class="hero-image">
-                        <img src="assets/images/reza.jpeg" class="img-fluid" alt="Reza Harjadinata">
-                    </div>
-
-                    <div class="hero-stat">
-                        <div>
-                            <h3 class="counter" data-target="120">0</h3>
-                            <p>Projects</p>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="hero-visual" data-tilt>
+                        <div class="hero-image">
+                            <img src="assets/images/reza.jpeg" alt="Reza Harjadinata">
                         </div>
-                        <div>
-                            <h3 class="counter" data-target="6">0</h3>
-                            <p>Years Experience</p>
-                        </div>
-                        <div>
-                            <h3 class="counter" data-target="25">0</h3>
-                            <p>Clients</p>
-                        </div>
+                        <div class="floating-chip chip-1"><i class="fa-solid fa-code"></i> &lt;/&gt;</div>
+                        <div class="floating-chip chip-2">{ }</div>
+                        <div class="floating-chip chip-3"><i class="fa-solid fa-terminal"></i> npm run dev</div>
                     </div>
                 </div>
             </div>
@@ -123,13 +133,13 @@
         <div class="container">
             <div class="row align-items-center g-5">
                 <div class="col-lg-5" data-aos="fade-right">
-                    <div class="about-image">
-                        <img src="assets/images/reza.jpeg" class="img-fluid" alt="Reza Harjadinata">
+                    <div class="about-image" data-tilt>
+                        <img src="assets/images/reza.jpeg" alt="Reza Harjadinata">
                     </div>
                 </div>
 
                 <div class="col-lg-7" data-aos="fade-left">
-                    <div class="section-subtitle">ABOUT ME</div>
+                    <div class="section-subtitle">// about me</div>
 
                     <h2 class="section-title">
                         Crafting Digital Experiences with Passion
@@ -147,7 +157,7 @@
                         and elegant user interfaces.
                     </p>
 
-                    <div class="row mt-5">
+                    <div class="row mt-4">
                         <div class="col-md-6">
                             <ul class="about-list">
                                 <li><i class="fa-solid fa-check"></i> Laravel Expert</li>
@@ -173,26 +183,26 @@
     <!-- ===== Statistics ===== -->
     <section id="statistics">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-6">
+            <div class="row g-4">
+                <div class="col-lg-3 col-6" data-aos="fade-up">
                     <div class="stat-card">
                         <h2 class="counter" data-target="120">0</h2>
                         <span>Projects Completed</span>
                     </div>
                 </div>
-                <div class="col-lg-3 col-6">
+                <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="stat-card">
                         <h2 class="counter" data-target="25">0</h2>
                         <span>Happy Clients</span>
                     </div>
                 </div>
-                <div class="col-lg-3 col-6">
+                <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="stat-card">
                         <h2 class="counter" data-target="6">0</h2>
                         <span>Years Experience</span>
                     </div>
                 </div>
-                <div class="col-lg-3 col-6">
+                <div class="col-lg-3 col-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="stat-card">
                         <h2 class="counter" data-target="15">0</h2>
                         <span>Technologies</span>
@@ -206,12 +216,12 @@
     <section id="experience" class="section-padding">
         <div class="container">
             <div class="text-center mb-5">
-                <div class="section-subtitle">MY JOURNEY</div>
+                <div class="section-subtitle">// my journey</div>
                 <h2 class="section-title">Experience Timeline</h2>
             </div>
 
             <div class="timeline">
-                <div class="timeline-item">
+                <div class="timeline-item" data-aos="fade-up">
                     <div class="year">2020</div>
                     <div class="content">
                         <h4>Freelance Web Developer</h4>
@@ -221,7 +231,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item" data-aos="fade-up">
                     <div class="year">2021</div>
                     <div class="content">
                         <h4>Founder of Depati Digital</h4>
@@ -231,7 +241,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item" data-aos="fade-up">
                     <div class="year">2023</div>
                     <div class="content">
                         <h4>Government IT Consultant</h4>
@@ -241,7 +251,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item" data-aos="fade-up">
                     <div class="year">2025</div>
                     <div class="content">
                         <h4>AI &amp; Automation Engineer</h4>
@@ -255,42 +265,27 @@
         </div>
     </section>
 
-    <!-- ===== Skills ===== -->
-    <section id="skills">
+    <!-- ===== Tech Stack ===== -->
+    <section id="stack">
         <div class="container">
             <div class="text-center mb-5">
-                <div class="section-subtitle">MY SKILLS</div>
-                <h2 class="section-title">Technical Expertise</h2>
+                <div class="section-subtitle">// tools i build with</div>
+                <h2 class="section-title">My Tech Stack</h2>
             </div>
 
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <div class="skill-card">
-                        <i class="fa-brands fa-laravel"></i>
-                        <h4>Laravel</h4>
-                        <div class="progress">
-                            <div class="progress-bar" style="width:95%">95%</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="skill-card">
-                        <i class="fa-brands fa-node-js"></i>
-                        <h4>NodeJS</h4>
-                        <div class="progress">
-                            <div class="progress-bar" style="width:90%">90%</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="skill-card">
-                        <i class="fa-brands fa-js"></i>
-                        <h4>JavaScript</h4>
-                        <div class="progress">
-                            <div class="progress-bar" style="width:92%">92%</div>
-                        </div>
-                    </div>
-                </div>
+            <div class="stack-grid" data-aos="fade-up">
+                <div class="stack-item"><i class="fa-brands fa-laravel" style="color:#ff2d20"></i><span>Laravel</span></div>
+                <div class="stack-item"><i class="fa-brands fa-php" style="color:#777bb4"></i><span>PHP</span></div>
+                <div class="stack-item"><i class="fa-brands fa-node-js" style="color:#5fa04e"></i><span>Node.js</span></div>
+                <div class="stack-item"><i class="fa-brands fa-js" style="color:#f7df1e"></i><span>JavaScript</span></div>
+                <div class="stack-item"><i class="fa-brands fa-react" style="color:#61dafb"></i><span>React</span></div>
+                <div class="stack-item"><i class="fa-brands fa-python" style="color:#3776ab"></i><span>Python</span></div>
+                <div class="stack-item"><i class="fa-solid fa-database" style="color:#00758f"></i><span>MySQL</span></div>
+                <div class="stack-item"><i class="fa-brands fa-docker" style="color:#2496ed"></i><span>Docker</span></div>
+                <div class="stack-item"><i class="fa-brands fa-git-alt" style="color:#f05032"></i><span>Git</span></div>
+                <div class="stack-item"><i class="fa-brands fa-linux" style="color:#eab308"></i><span>Linux</span></div>
+                <div class="stack-item"><i class="fa-brands fa-html5" style="color:#e34f26"></i><span>HTML5</span></div>
+                <div class="stack-item"><i class="fa-brands fa-figma" style="color:#f24e1e"></i><span>Figma</span></div>
             </div>
         </div>
     </section>
@@ -299,40 +294,49 @@
     <section id="projects" class="section-padding">
         <div class="container">
             <div class="text-center mb-5">
-                <div class="section-subtitle">FEATURED WORK</div>
+                <div class="section-subtitle">// featured work</div>
                 <h2 class="section-title">Selected Projects</h2>
             </div>
 
             <div class="row g-4">
-                <div class="col-lg-4">
-                    <div class="project-card">
+                <div class="col-lg-4" data-aos="fade-up">
+                    <div class="project-card" data-tilt>
                         <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80&auto=format&fit=crop" class="img-fluid" alt="SIMADANI ALAP">
                         <div class="project-overlay">
                             <span>Government System</span>
                             <h3>SIMADANI ALAP</h3>
                             <p>Enterprise Information System for Regional Government.</p>
+                            <div class="tech-tags">
+                                <span>Laravel</span><span>MySQL</span><span>Bootstrap</span>
+                            </div>
                             <a href="#">View Project <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="project-card">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card" data-tilt>
                         <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80&auto=format&fit=crop" class="img-fluid" alt="Depati Akademi">
                         <div class="project-overlay">
                             <span>Education</span>
                             <h3>Depati Akademi</h3>
                             <p>Learning Management System for Digital Academy.</p>
+                            <div class="tech-tags">
+                                <span>Node.js</span><span>React</span><span>MongoDB</span>
+                            </div>
                             <a href="#">View Project <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="project-card">
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card" data-tilt>
                         <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80&auto=format&fit=crop" class="img-fluid" alt="Orion AI">
                         <div class="project-overlay">
                             <span>AI Platform</span>
                             <h3>Orion AI</h3>
                             <p>WhatsApp Automation &amp; Artificial Intelligence Platform.</p>
+                            <div class="tech-tags">
+                                <span>Python</span><span>OpenAI</span><span>WhatsApp API</span>
+                            </div>
                             <a href="#">View Project <i class="fa-solid fa-arrow-right"></i></a>
                         </div>
                     </div>
@@ -345,33 +349,33 @@
     <section id="services">
         <div class="container">
             <div class="text-center mb-5">
-                <div class="section-subtitle">WHAT I DO</div>
+                <div class="section-subtitle">// what i do</div>
                 <h2 class="section-title">Services</h2>
             </div>
 
             <div class="row g-4">
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-sm-6" data-aos="fade-up">
                     <div class="service-card">
                         <i class="fa-solid fa-code"></i>
                         <h4>Web Development</h4>
                         <p>Modern responsive websites with scalable architecture.</p>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-card">
                         <i class="fa-solid fa-server"></i>
                         <h4>Backend System</h4>
                         <p>REST API, Enterprise Applications, Dashboard.</p>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-card">
                         <i class="fa-solid fa-robot"></i>
                         <h4>AI Automation</h4>
                         <p>AI Assistant, Chatbot, WhatsApp Bot.</p>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-sm-6" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-card">
                         <i class="fa-solid fa-layer-group"></i>
                         <h4>UI / UX Design</h4>
@@ -382,43 +386,15 @@
         </div>
     </section>
 
-    <!-- ===== Gallery ===== -->
-    <section id="gallery" class="section-padding">
-        <div class="container">
-            <div class="text-center mb-5">
-                <div class="section-subtitle">GALLERY</div>
-                <h2 class="section-title">Portfolio Moments</h2>
-            </div>
-
-            <div class="row g-3">
-                <div class="col-lg-4">
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80&auto=format&fit=crop" class="gallery-image img-fluid" alt="Team collaboration">
-                </div>
-                <div class="col-lg-4">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80&auto=format&fit=crop" class="gallery-image img-fluid" alt="Writing code">
-                </div>
-                <div class="col-lg-4">
-                    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80&auto=format&fit=crop" class="gallery-image img-fluid" alt="Code on screen">
-                </div>
-                <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1000&q=80&auto=format&fit=crop" class="gallery-image img-fluid" alt="Developer workspace">
-                </div>
-                <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1000&q=80&auto=format&fit=crop" class="gallery-image img-fluid" alt="Technology and connectivity">
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- ===== Testimonial ===== -->
-    <section id="testimonial">
+    <section id="testimonial" class="section-padding">
         <div class="container">
             <div class="text-center mb-5">
-                <div class="section-subtitle">TESTIMONIAL</div>
+                <div class="section-subtitle">// kind words</div>
                 <h2 class="section-title">What Clients Say</h2>
             </div>
 
-            <div class="swiper testimonial-slider">
+            <div class="swiper testimonial-slider" data-aos="fade-up">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="testimonial-card">
@@ -434,6 +410,13 @@
                             <h5>Startup Founder</h5>
                         </div>
                     </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <div class="stars">★★★★★</div>
+                            <p>"Delivered a polished AI platform ahead of schedule."</p>
+                            <h5>Product Manager</h5>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="swiper-pagination"></div>
@@ -444,9 +427,9 @@
     <!-- ===== Contact ===== -->
     <section id="contact" class="section-padding">
         <div class="container">
-            <div class="row">
+            <div class="row g-5">
                 <div class="col-lg-5">
-                    <div class="section-subtitle">CONTACT</div>
+                    <div class="section-subtitle">// get in touch</div>
                     <h2 class="section-title">Let's Build Something Great</h2>
 
                     <p>
@@ -455,7 +438,12 @@
                     </p>
 
                     <div class="contact-info">
-                        <p><i class="fa-solid fa-envelope"></i> hello@RezaHarjadinata.com</p>
+                        <div class="contact-row">
+                            <span><i class="fa-solid fa-envelope"></i> hello@rezaharjadinata.com</span>
+                            <button class="copy-btn" type="button" data-copy="hello@rezaharjadinata.com">
+                                <i class="fa-regular fa-copy"></i> Copy
+                            </button>
+                        </div>
                         <p><i class="fa-solid fa-phone"></i> +62 xxx xxxx xxxx</p>
                         <p><i class="fa-solid fa-location-dot"></i> Kerinci, Indonesia</p>
                     </div>
@@ -463,7 +451,7 @@
 
                 <div class="col-lg-7">
                     <form>
-                        <div class="row">
+                        <div class="row g-3">
                             <div class="col-md-6">
                                 <input type="text" placeholder="Your Name" class="form-control">
                             </div>
@@ -476,7 +464,7 @@
 
                         <textarea rows="6" class="form-control mt-3" placeholder="Message"></textarea>
 
-                        <button class="btn btn-gold mt-4">Send Message</button>
+                        <button class="btn btn-gold mt-4" type="submit">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -486,31 +474,31 @@
     <!-- ===== Footer ===== -->
     <footer>
         <div class="container">
-            <div class="row">
+            <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h3>Reza Harjadinata</h3>
+                    <h3><span class="brand-bracket">&lt;</span>Reza Harjadinata<span class="brand-bracket">/&gt;</span></h3>
                     <p>Full Stack Developer • AI Engineer • Founder</p>
                 </div>
                 <div class="col-lg-6 text-lg-end">
                     <div class="footer-social">
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
             </div>
 
             <hr>
 
-            <div class="text-center">
-                © 2026 Reza Harjadinata. All Rights Reserved.
+            <div class="text-center footer-copy">
+                © 2026 Reza Harjadinata. Built with clean code &amp; coffee ☕
             </div>
         </div>
     </footer>
 
     <!-- Back to top -->
-    <div id="topButton">
+    <div id="topButton" aria-label="Back to top">
         <i class="fa-solid fa-arrow-up"></i>
     </div>
 
