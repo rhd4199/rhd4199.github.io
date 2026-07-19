@@ -1,238 +1,113 @@
 /*=========================================================
-RIFKI PORTFOLIO
+REZA HARJADINATA — PORTFOLIO
 =========================================================*/
 
-$(function(){
-
+$(function () {
     "use strict";
 
-    /*=====================================
-    Loader
-    =====================================*/
-
-    setTimeout(function(){
-
+    /*==================== Loader ====================*/
+    setTimeout(function () {
         $("#loader").fadeOut(700);
+    }, 1000);
 
-    },1000);
-
-    /*=====================================
-    Navbar Scroll
-    =====================================*/
-
-    $(window).scroll(function(){
-
-        if($(this).scrollTop()>80){
-
-            $(".navbar").addClass("scrolled");
-
-        }else{
-
-            $(".navbar").removeClass("scrolled");
-
-        }
-
+    /*==================== Navbar Scroll ====================*/
+    $(window).on("scroll", function () {
+        $(".navbar").toggleClass("scrolled", $(this).scrollTop() > 80);
     });
 
-    /*=====================================
-    Smooth Scroll
-    =====================================*/
+    /*==================== Smooth Scroll ====================*/
+    $('a[href^="#"]').on("click", function (e) {
+        // Ignore bare "#" links (brand, social icons, placeholders)
+        if (this.hash === "" || this.hash === "#") return;
 
-    $('a[href^="#"]').click(function(e){
-
-        e.preventDefault();
-
-        let target=$(this.hash);
-
-        if(target.length){
-
-            $("html,body").animate({
-
-                scrollTop:target.offset().top-80
-
-            },700);
-
+        const target = $(this.hash);
+        if (target.length) {
+            e.preventDefault();
+            $("html, body").animate({
+                scrollTop: target.offset().top - 80
+            }, 700);
         }
-
     });
 
-    /*=====================================
-    Counter
-    =====================================*/
+    /*==================== Counters (animate when in view) ====================*/
+    function runCounter($el) {
+        const target = parseInt($el.attr("data-target"), 10) || 0;
+        const speed = target / 100;
+        let count = 0;
 
-    $(".counter").each(function(){
-
-        let counter=$(this);
-
-        let target=parseInt(counter.attr("data-target"));
-
-        let count=0;
-
-        let speed=target/100;
-
-        let interval=setInterval(function(){
-
-            count+=speed;
-
-            if(count>=target){
-
-                count=target;
-
+        const interval = setInterval(function () {
+            count += speed;
+            if (count >= target) {
+                count = target;
                 clearInterval(interval);
-
             }
+            $el.text(Math.floor(count));
+        }, 20);
+    }
 
-            counter.text(Math.floor(count));
+    const counters = document.querySelectorAll(".counter");
 
-        },20);
+    if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(function (entries, obs) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    runCounter($(entry.target));
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
 
-    });
+        counters.forEach(function (el) {
+            observer.observe(el);
+        });
+    } else {
+        // Fallback: run immediately
+        counters.forEach(function (el) {
+            runCounter($(el));
+        });
+    }
 
-    /*=====================================
-    AOS
-    =====================================*/
-
+    /*==================== AOS ====================*/
     AOS.init({
-
-        duration:1200,
-
-        once:true,
-
-        offset:100
-
+        duration: 1200,
+        once: true,
+        offset: 100
     });
 
-    /*=====================================
-    Swiper
-    =====================================*/
-
-    new Swiper(".testimonial-slider",{
-
-        loop:true,
-
-        speed:1000,
-
-        autoplay:{
-
-            delay:4000,
-
-            disableOnInteraction:false
-
+    /*==================== Swiper ====================*/
+    new Swiper(".testimonial-slider", {
+        loop: true,
+        speed: 1000,
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false
         },
-
-        pagination:{
-
-            el:".swiper-pagination",
-
-            clickable:true
-
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true
         }
-
     });
 
-});
-/*=========================================
-Typing Hero
-=========================================*/
+    /*==================== Cursor Glow ====================*/
+    const glow = document.createElement("div");
+    glow.className = "mouse-glow";
+    document.body.appendChild(glow);
 
-const typingText=[
-    "Full Stack Developer",
-    "AI Engineer",
-    "Founder",
-    "Software Consultant"
-];
+    document.addEventListener("mousemove", function (e) {
+        glow.style.left = e.clientX + "px";
+        glow.style.top = e.clientY + "px";
+    });
 
-let txtIndex=0;
-let charIndex=0;
+    /*==================== Back to Top ====================*/
+    const topBtn = document.getElementById("topButton");
 
-const typing=document.getElementById("typing");
+    if (topBtn) {
+        window.addEventListener("scroll", function () {
+            topBtn.classList.toggle("show", window.scrollY > 400);
+        });
 
-function type(){
-
-    if(!typing) return;
-
-    if(charIndex<typingText[txtIndex].length){
-
-        typing.innerHTML+=typingText[txtIndex].charAt(charIndex);
-
-        charIndex++;
-
-        setTimeout(type,70);
-
-    }else{
-
-        setTimeout(erase,1800);
-
+        topBtn.addEventListener("click", function () {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
     }
-
-}
-
-function erase(){
-
-    if(charIndex>0){
-
-        typing.innerHTML=typingText[txtIndex].substring(0,charIndex-1);
-
-        charIndex--;
-
-        setTimeout(erase,35);
-
-    }else{
-
-        txtIndex++;
-
-        if(txtIndex>=typingText.length){
-
-            txtIndex=0;
-
-        }
-
-        setTimeout(type,500);
-
-    }
-
-}
-
-type();
-
-const glow=document.createElement("div");
-
-glow.className="mouse-glow";
-
-document.body.appendChild(glow);
-
-document.addEventListener("mousemove",e=>{
-
-    glow.style.left=e.clientX+"px";
-
-    glow.style.top=e.clientY+"px";
-
 });
-
-const topBtn=document.getElementById("topButton");
-
-window.addEventListener("scroll",()=>{
-
-if(window.scrollY>400){
-
-topBtn.classList.add("show");
-
-}else{
-
-topBtn.classList.remove("show");
-
-}
-
-});
-
-topBtn.onclick=()=>{
-
-window.scrollTo({
-
-top:0,
-
-behavior:"smooth"
-
-});
-
-};
